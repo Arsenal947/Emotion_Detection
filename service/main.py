@@ -6,7 +6,7 @@ app = FastAPI(project_name= "Emotion Detection")
 app.include_router(main_router)
 
 providers = ['CPUExecutionProvider']
-m_q = rt.InferenceSession('vit_onnx.onnx', providers = providers)
+m_q = rt.InferenceSession('service/vit_onnx.onnx', providers = providers)
 
 @app.get('/')
 async def root():
