@@ -5,9 +5,8 @@ from service.api.api import main_router
 app = FastAPI(project_name= "Emotion Detection")
 app.include_router(main_router)
 
-model_path = './service/vit_onnx.onnx'
 providers = ['CPUExecutionProvider']
-m_q = rt.InferenceSession(model_path, providers = providers)
+m_q = rt.InferenceSession('service/vit_onnx.onnx', providers = providers)
 
 @app.get('/')
 async def root():
